@@ -18,7 +18,32 @@ class CrewMember {
     this.specialSkill = specialSkill;
     this.ship = null;
   }
+  enterShip (ship) {
+    // push "this" crew member object into the ship array (enterning the ship)
+    ship.crew.push(this);
+    // now the crew members ship is not null anymore, but the name of whatever ship she entered.
+    this.ship = ship;
+  }
 }
+
+class Ship {
+  constructor (name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement () {
+    // if the crew length of the ship is zero, then it can't perform a mission
+  if (this.crew.length === 0) { 
+    return "Can't perform a mission yet."
+  } else {
+    // otherwise, it's mission is its ablity (according to the tests below)
+    return this.ability;
+  }
+}
+}
+
 
 
 
